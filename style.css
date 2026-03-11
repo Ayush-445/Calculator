@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -7,14 +6,19 @@
 }
 body{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: linear-gradient(45deg, #0a0a0a, #3a4452); */
+    padding: 1rem;
     background-color: #027ac0;
     background-image: linear-gradient(160deg, #047abe 0%, #519890 100%);
+}
 
+.appWrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
 }
 
 .calculator{
@@ -34,14 +38,12 @@ input{
     box-shadow: 0px 3px 15px rgba(84,84,84,0.2);
     font-size: 2.5rem;
     text-align: right;
-    cursor: pointer;
     color: white;
 }
 
 input::placeholder{
     color: white;
 }
-
 
 button{
     border: 1px solid #519890;
@@ -64,26 +66,102 @@ button{
 .operator{
     color: #6dee0a;
 }
+
+.historyPanel {
+    width: 18rem;
+    max-height: 32rem;
+    border: 1px solid #0287d4;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 15px rgba(117, 118, 120, 0.5);
+}
+
+.historyHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.historyHeader h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#clearHistoryBtn {
+    width: auto;
+    height: auto;
+    border-radius: 0.5rem;
+    padding: 0.35rem 0.55rem;
+    margin: 0;
+    font-size: 0.85rem;
+    box-shadow: none;
+}
+
+#historyList {
+    list-style: none;
+    max-height: 26rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+#historyList li {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.65rem;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+#historyList li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#historyList .emptyHistory {
+    cursor: default;
+    opacity: 0.8;
+}
+
+@media (max-width:760px){
+    .appWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .historyPanel {
+        width: 100%;
+        max-width: 22rem;
+    }
+}
+
 @media (max-width:440px){
     input {
         width: 16rem;
     }
-     button{
+
+    button{
         width:2.75rem;
         height: 2.75rem;
         font-size: 16px;
+    }
 
-     }
+    .historyPanel {
+        max-width: 18rem;
+    }
 }
 
 @media (max-width:320px){
     input {
         width: 15rem;
     }
-     button{
+
+    button{
         width:2.5rem;
         height: 2.5rem;
         font-size: 15px;
-
-     }
+    }
 }
